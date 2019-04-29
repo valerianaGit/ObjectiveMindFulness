@@ -48,11 +48,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     UIBezierPath* circlePath = [UIBezierPath bezierPath];
-    [circlePath moveToPoint:CGPointMake(0, 0)];
-    [circlePath addLineToPoint:CGPointMake(self.mainHomeView.frame.size.width/2, self.mainHomeView.frame.size.height/2)];
-    [circlePath addLineToPoint:CGPointMake(self.mainHomeView.frame.size.width, 0)];
-    [circlePath closePath];
-//    [circlePath addArcWithCenter:self.mainHomeView.center radius: self.mainHomeView.frame.size.width / 3 startAngle:0 endAngle: 2 * M_PI clockwise:TRUE];
+    [circlePath addArcWithCenter:self.mainHomeView.center radius: self.mainHomeView.frame.size.width / 3 startAngle:0 endAngle: 2 * M_PI clockwise:TRUE];
     
     CAShapeLayer *circleMaskLayer = [CAShapeLayer layer];
     [circleMaskLayer setPath:circlePath.CGPath];
