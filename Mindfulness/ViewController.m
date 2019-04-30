@@ -18,32 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    CAShapeLayer *shapeLayer;
-//    center = _mainHomeView.center;
-//
-//    UIBezierPath *circularPath = UIBezierPath[(arcCenter: _mainHomeView)
-//
-//    [[UIColor blackColor] setStroke]];
-//    [[UIColor whiteColor] setFill];
-//    UIBezierPath * path = [UIBezierPath bezierPath];
-//    [path moveToPoint:point1];
-//    [path addQuadCurveToPoint:point3 controlPoint:point2];
-//    [path addQuadCurveToPoint:point5 controlPoint:point4];
-//    [path setLineWidth:2.0f];
-//    [path stroke];
-//    [path fill];
-//
-//    aPath = CGPathCreateMutable();
-//    CGPathAddEllipseInRect(aPath, nil, outline);
-//    CGPathCloseSubpath(aPath);
-//    pathCopy = CGPathCreateCopyByTransformingPath(aPath, nil);
-//    myLayer = nil;
-//    myLayer = [CAShapeLayer layer];
-//    myLayer.path = pathCopy;
-//    myLayer.fillColor = [[UIColor whiteColor] CGColor];
-//    [self.layer addSublayer:myLayer];
-//CGPathAddPath(aPath, nil, path.CGPath);
-//
+
 }
 
 - (void)viewDidLayoutSubviews {
@@ -61,15 +36,40 @@
     [circleShapeLayer setPath:circlePath.CGPath];
     circleShapeLayer.strokeColor = UIColor.blueColor.CGColor;
     circleShapeLayer.lineWidth = 10;
+    circleShapeLayer.fillColor = [[UIColor clearColor] CGColor];
     
     //add a button in each 1/2 M_PI.. could we create these with a for loop?
-    UIButton *breathButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIButton *meditateButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIButton *journalButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-
+    // 1- create buttons
+    CAShapeLayer *breathButtonLayer = [CAShapeLayer layer];
+    //UIButton *breathButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIButton *meditateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIButton *journalButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIBezierPath* buttonPath = [UIBezierPath bezierPath];
+    [buttonPath addArcWithCenter:circlePath.currentPoint radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
+    breathButtonLayer.path = buttonPath.CGPath;
+    [breathButtonLayer setPath:buttonPath.CGPath];
+    // 2- add them to the circle
+     [self.mainHomeView.layer addSublayer:breathButtonLayer];
+    
    
-
+    //    [path moveToPoint:point1];
+    //    [path addQuadCurveToPoint:point3 controlPoint:point2];
+    //    [path addQuadCurveToPoint:point5 controlPoint:point4];
+    //    [path setLineWidth:2.0f];
+    //    [path stroke];
+    //    [path fill];
+    //
+    //    aPath = CGPathCreateMutable();
+    //    CGPathAddEllipseInRect(aPath, nil, outline);
+    //    CGPathCloseSubpath(aPath);
+    //    pathCopy = CGPathCreateCopyByTransformingPath(aPath, nil);
+    //    myLayer = nil;
+    //    myLayer = [CAShapeLayer layer];
+    //    myLayer.path = pathCopy;
+   
+    //CGPathAddPath(aPath, nil, path.CGPath);
+    //
 
 
     
