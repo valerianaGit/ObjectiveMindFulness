@@ -53,11 +53,11 @@
 
 -(void)drawCircle {
     
-    CALayer *parentLayer = [CALayer layer];
-    [self.view.layer addSubLayer:parentLayer];
-    [parentLayer addSublayer: myShapeLayer];
-    [parentLayer addSublayer: myLayerOverShapeLayer];
-    
+//    CALayer *parentLayer = [CALayer layer];
+//    [self.view.layer addSubLayer:parentLayer];
+//    [parentLayer addSublayer: myShapeLayer];
+//    [parentLayer addSublayer: myLayerOverShapeLayer];
+//    
     CAShapeLayer *circleShapeLayer = [CAShapeLayer layer];
     [self.mainHomeView.layer addSublayer:circleShapeLayer];
     UIBezierPath* circlePath = [UIBezierPath bezierPath];
