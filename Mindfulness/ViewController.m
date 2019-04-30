@@ -53,37 +53,26 @@
 
 -(void)drawCircle {
     
-//    CALayer *parentLayer = [CALayer layer];
-//    [self.view.layer addSubLayer:parentLayer];
-//    [parentLayer addSublayer: myShapeLayer];
-//    [parentLayer addSublayer: myLayerOverShapeLayer];
-//    
     CAShapeLayer *circleShapeLayer = [CAShapeLayer layer];
     [self.mainHomeView.layer addSublayer:circleShapeLayer];
     UIBezierPath* circlePath = [UIBezierPath bezierPath];
-    [circlePath addArcWithCenter:self.mainHomeView.center radius: self.mainHomeView.frame.size.width / 3 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
-    //[circlePath stroke];
-        circleShapeLayer.path = circlePath.CGPath;
-    
-    
+    [circlePath addArcWithCenter:self.mainHomeView.center radius: self.mainHomeView.frame.size.width / 3 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE]; //draw circle
+    circleShapeLayer.path = circlePath.CGPath;
     [circleShapeLayer setPath:circlePath.CGPath];
     circleShapeLayer.strokeColor = UIColor.blueColor.CGColor;
     circleShapeLayer.lineWidth = 10;
-    //[circleShapeLayer addSublayer:circlePath];
     
+    //add a button in each 1/2 M_PI.. could we create these with a for loop?
+    UIButton *breathButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *meditateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *journalButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+   
+
+
 
     
-    
-    
-    
-    //[self.mainHomeView addSubview:circleShapeLayer];
-    
-   // UIView *firstView = [[UIView alloc] initWithFrame:CGRectMake(0,0, self.mainHomeView.frame.size.width, self.mainHomeView.frame.size.height)];
-//    firstView.backgroundColor = [UIColor colorWithWhite:.75 alpha:0.1];
-//    firstView.layer.mask = circleShapeLayer;
-//    [self.mainHomeView addSubview:circlePath];
-    
-    //add a button in each 1/2 M_PI
 }
 
 @end
