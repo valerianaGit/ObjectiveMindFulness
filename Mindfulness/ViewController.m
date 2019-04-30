@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *mainHomeView;
 
@@ -47,16 +48,24 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    [self drawCircle];
+}
+
+-(void)drawCircle {
     UIBezierPath* circlePath = [UIBezierPath bezierPath];
-    [circlePath addArcWithCenter:self.mainHomeView.center radius: self.mainHomeView.frame.size.width / 3 startAngle:0 endAngle: 2 * M_PI clockwise:TRUE];
+    [circlePath addArcWithCenter:self.mainHomeView.center radius: self.mainHomeView.frame.size.width / 3 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
+    [circlePath stroke];
     
     CAShapeLayer *circleMaskLayer = [CAShapeLayer layer];
     [circleMaskLayer setPath:circlePath.CGPath];
     
     UIView *firstView = [[UIView alloc] initWithFrame:CGRectMake(0,0, self.mainHomeView.frame.size.width, self.mainHomeView.frame.size.height)];
     
-    firstView.backgroundColor = [UIColor colorWithWhite:.75 alpha:1];
+    firstView.backgroundColor = [UIColor colorWithWhite:.75 alpha:0.1];
     firstView.layer.mask = circleMaskLayer;
-    [self.mainHomeView addSubview:firstView];}
+    [self.mainHomeView addSubview:firstView];
+    
+    //add a button in each 1/2 M_PI
+}
 
 @end
