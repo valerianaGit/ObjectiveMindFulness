@@ -34,7 +34,6 @@
     [circlePath addArcWithCenter:self.mainHomeView.center radius: 150 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
     //draw  main circle
     circleShapeLayer.path = circlePath.CGPath;
-    [circleShapeLayer setPath:circlePath.CGPath];
     circleShapeLayer.strokeColor = UIColor.blueColor.CGColor;
     circleShapeLayer.lineWidth = 10;
     circleShapeLayer.fillColor = [[UIColor clearColor] CGColor];
@@ -44,10 +43,10 @@
     CAShapeLayer *journalButtonLayer = [CAShapeLayer layer];
     CAShapeLayer *playButtonLayer = [CAShapeLayer layer];
     // make centers of circles transparent
-//    breathButtonLayer.fillColor = [[UIColor clearColor] CGColor];
-//    meditateButtonLayer.fillColor = [[UIColor clearColor] CGColor];
-//    journalButtonLayer.fillColor = [[UIColor clearColor] CGColor];
-//    playButtonLayer.fillColor = [[UIColor clearColor] CGColor];
+    breathButtonLayer.fillColor = [[UIColor clearColor] CGColor];
+    meditateButtonLayer.fillColor = [[UIColor clearColor] CGColor];
+    journalButtonLayer.fillColor = [[UIColor clearColor] CGColor];
+    playButtonLayer.fillColor = [[UIColor clearColor] CGColor];
     //Centers of button circles
     CGPoint pointPi = CGPointMake(circlePath.currentPoint.x - 300, circlePath.currentPoint.y);
     CGPoint pointHalfPi = CGPointMake(circlePath.currentPoint.x - 150, circlePath.currentPoint.y - 200);
@@ -72,6 +71,14 @@
     [self.mainHomeView.layer addSublayer:journalButtonLayer];
     [self.mainHomeView.layer addSublayer:playButtonLayer];
     
+    breathButtonLayer.strokeColor = UIColor.blueColor.CGColor;
+    breathButtonLayer.lineWidth = 10;
+    meditateButtonLayer.strokeColor = UIColor.blueColor.CGColor;
+    meditateButtonLayer.lineWidth = 10;
+    journalButtonLayer.strokeColor = UIColor.blueColor.CGColor;
+    journalButtonLayer.lineWidth = 10;
+    playButtonLayer.strokeColor = UIColor.blueColor.CGColor;
+    playButtonLayer.lineWidth = 10;
     
 }
 
