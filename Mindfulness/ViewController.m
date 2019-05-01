@@ -53,49 +53,67 @@
     CGPoint pointHalfPi = CGPointMake(circlePath.currentPoint.x - 150, circlePath.currentPoint.y - 200);
     CGPoint pointOneAndAHalfPi = CGPointMake(circlePath.currentPoint.x - 150, circlePath.currentPoint.y + 200);
     //Draw new bezier paths for each button
-    UIBezierPath *buttonPath = [UIBezierPath bezierPath];
-    UIBezierPath *buttonPathTwo = [UIBezierPath bezierPath];
-    UIBezierPath *buttonPathThree = [UIBezierPath bezierPath];
-    UIBezierPath *buttonPathFour = [UIBezierPath bezierPath];
-    [buttonPath addArcWithCenter:circlePath.currentPoint radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
-    [buttonPathTwo addArcWithCenter:pointHalfPi radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
-    [buttonPathThree addArcWithCenter:pointPi radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
-    [buttonPathFour addArcWithCenter:pointOneAndAHalfPi radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
-    breathButtonLayer.path = buttonPath.CGPath;
-    meditateButtonLayer.path = buttonPathTwo.CGPath;
-    journalButtonLayer.path = buttonPathThree.CGPath;
-    playButtonLayer.path = buttonPathFour.CGPath;
-    
-    // add circles to main view
-    [self.mainHomeView.layer addSublayer:breathButtonLayer];
-    [self.mainHomeView.layer addSublayer:meditateButtonLayer];
-    [self.mainHomeView.layer addSublayer:journalButtonLayer];
-    [self.mainHomeView.layer addSublayer:playButtonLayer];
-    
-    breathButtonLayer.strokeColor = UIColor.blueColor.CGColor;
-    breathButtonLayer.lineWidth = 2;
-    meditateButtonLayer.strokeColor = UIColor.blueColor.CGColor;
-    meditateButtonLayer.lineWidth = 2;
-    journalButtonLayer.strokeColor = UIColor.blueColor.CGColor;
-    journalButtonLayer.lineWidth = 2;
-    playButtonLayer.strokeColor = UIColor.blueColor.CGColor;
-    playButtonLayer.lineWidth = 2;
+//    UIBezierPath *buttonPath = [UIBezierPath bezierPath];
+//    UIBezierPath *buttonPathTwo = [UIBezierPath bezierPath];
+//    UIBezierPath *buttonPathThree = [UIBezierPath bezierPath];
+//    UIBezierPath *buttonPathFour = [UIBezierPath bezierPath];
+//    [buttonPath addArcWithCenter:circlePath.currentPoint radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
+//    [buttonPathTwo addArcWithCenter:pointHalfPi radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
+//    [buttonPathThree addArcWithCenter:pointPi radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
+//    [buttonPathFour addArcWithCenter:pointOneAndAHalfPi radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
+//    breathButtonLayer.path = buttonPath.CGPath;
+//    meditateButtonLayer.path = buttonPathTwo.CGPath;
+//    journalButtonLayer.path = buttonPathThree.CGPath;
+//    playButtonLayer.path = buttonPathFour.CGPath;
+//    
+//    // add circles to main view
+//    [self.mainHomeView.layer addSublayer:breathButtonLayer];
+//    [self.mainHomeView.layer addSublayer:meditateButtonLayer];
+//    [self.mainHomeView.layer addSublayer:journalButtonLayer];
+//    [self.mainHomeView.layer addSublayer:playButtonLayer];
+//    
+//    breathButtonLayer.strokeColor = UIColor.blueColor.CGColor;
+//    breathButtonLayer.lineWidth = 2;
+//    meditateButtonLayer.strokeColor = UIColor.blueColor.CGColor;
+//    meditateButtonLayer.lineWidth = 2;
+//    journalButtonLayer.strokeColor = UIColor.blueColor.CGColor;
+//    journalButtonLayer.lineWidth = 2;
+//    playButtonLayer.strokeColor = UIColor.blueColor.CGColor;
+//    playButtonLayer.lineWidth = 2;
     
     //Add image to view
        //UIView *breathView = [UIView];
-    UIView *breathView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y + 150, 100, 100)];
+    UIView *breathView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 50, circlePath.currentPoint.y - 50, 100, 100)];
    
+     UIView *meditateView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y + 150, 100, 100)];
+    
+    UIView *journalView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 350, circlePath.currentPoint.y - 50, 100, 100)];
+    
+    UIView *playView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y - 250, 100, 100)];
+    
+    
+    
     breathView.layer.cornerRadius = 50;
+    meditateView.layer.cornerRadius = 50;
+    journalView.layer.cornerRadius = 50;
+    playView.layer.cornerRadius = 50;
   //  breathView.backgroundColor = [UIColor redColor];
     breathView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
+    meditateView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
+    journalView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
+    playView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
+    
+    
+    
 //      CAShapeLayer *playButtonLayer = [CAShapeLayer layer];
 //    CGPoint pointOneAndAHalfPi = CGPointMake(circlePath.currentPoint.x - 150, circlePath.currentPoint.y + 200);
 //    //Draw new bezier paths for each button
 //    UIBezierPath *buttonPath = [UIBezierPath bezierPath];
     //[self.mainHomeView.layer addSublayer:breathView];
     [self.mainHomeView addSubview:breathView];
-    
-    
+     [self.mainHomeView addSubview:meditateView];
+    [self.mainHomeView addSubview:journalView];
+    [self.mainHomeView addSubview:playView];
 }
 
 @end
