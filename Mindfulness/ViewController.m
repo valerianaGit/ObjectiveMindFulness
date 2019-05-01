@@ -41,17 +41,29 @@
     //add a button in each 1/2 M_PI.. could we create these with a for loop?
     // 1- create buttons
     CAShapeLayer *breathButtonLayer = [CAShapeLayer layer];
+    CAShapeLayer *meditateButtonLayer = [CAShapeLayer layer];
     //UIButton *breathButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    UIButton *meditateButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    UIButton *journalButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    //Center Points
+    CGPoint pointPi = CGPointMake(circlePath.currentPoint.x * M_PI, circlePath.currentPoint.y * M_PI);
+    
+    
     UIBezierPath* buttonPath = [UIBezierPath bezierPath];
+    //UIBezierPath *buttonPathTwo = [UIBezierPath bezierPath];
     [buttonPath addArcWithCenter:circlePath.currentPoint radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
+   // [buttonPathTwo addArcWithCenter:pointPi radius: 50 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
+
     breathButtonLayer.path = buttonPath.CGPath;
-    [breathButtonLayer setPath:buttonPath.CGPath];
+   // [breathButtonLayer setPath:buttonPath.CGPath];
+    
+//    meditateButtonLayer.path = buttonPathTwo.CGPath;
+//    [meditateButtonLayer setPath:buttonPathTwo.CGPath];
     // 2- add them to the circle
      [self.mainHomeView.layer addSublayer:breathButtonLayer];
-    
+    //[self.mainHomeView.layer addSublayer:meditateButtonLayer];
    
     //    [path moveToPoint:point1];
     //    [path addQuadCurveToPoint:point3 controlPoint:point2];
@@ -70,9 +82,8 @@
    
     //CGPathAddPath(aPath, nil, path.CGPath);
     //
-
-
     
+    //FOR every 1/2 pi, add point to array
 }
 
 @end
