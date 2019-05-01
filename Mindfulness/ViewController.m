@@ -44,6 +44,7 @@
     CAShapeLayer *playButtonLayer = [CAShapeLayer layer];
     // make centers of circles transparent
     breathButtonLayer.fillColor = [[UIColor clearColor] CGColor];
+    //breathButtonLayer.backgroundColor = [UIColor WithPatternImage:[UIImage imageNamed:@"breath"]];
     meditateButtonLayer.fillColor = [[UIColor clearColor] CGColor];
     journalButtonLayer.fillColor = [[UIColor clearColor] CGColor];
     playButtonLayer.fillColor = [[UIColor clearColor] CGColor];
@@ -72,13 +73,28 @@
     [self.mainHomeView.layer addSublayer:playButtonLayer];
     
     breathButtonLayer.strokeColor = UIColor.blueColor.CGColor;
-    breathButtonLayer.lineWidth = 10;
+    breathButtonLayer.lineWidth = 2;
     meditateButtonLayer.strokeColor = UIColor.blueColor.CGColor;
-    meditateButtonLayer.lineWidth = 10;
+    meditateButtonLayer.lineWidth = 2;
     journalButtonLayer.strokeColor = UIColor.blueColor.CGColor;
-    journalButtonLayer.lineWidth = 10;
+    journalButtonLayer.lineWidth = 2;
     playButtonLayer.strokeColor = UIColor.blueColor.CGColor;
-    playButtonLayer.lineWidth = 10;
+    playButtonLayer.lineWidth = 2;
+    
+    //Add image to view
+       //UIView *breathView = [UIView];
+    UIView *breathView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y + 150, 100, 100)];
+   
+    breathView.layer.cornerRadius = 50;
+  //  breathView.backgroundColor = [UIColor redColor];
+    breathView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
+//      CAShapeLayer *playButtonLayer = [CAShapeLayer layer];
+//    CGPoint pointOneAndAHalfPi = CGPointMake(circlePath.currentPoint.x - 150, circlePath.currentPoint.y + 200);
+//    //Draw new bezier paths for each button
+//    UIBezierPath *buttonPath = [UIBezierPath bezierPath];
+    //[self.mainHomeView.layer addSublayer:breathView];
+    [self.mainHomeView addSubview:breathView];
+    
     
 }
 
