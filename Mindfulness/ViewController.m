@@ -26,15 +26,15 @@
     [self drawCircleAndButtons];
 }
 
--(void)drawCircleAndButtons {    
+-(void)drawCircleAndButtons {
     CAShapeLayer *circleShapeLayer = [CAShapeLayer layer];
     [self.mainHomeView.layer addSublayer:circleShapeLayer];
     UIBezierPath* circlePath = [UIBezierPath bezierPath];
     [circlePath addArcWithCenter:self.mainHomeView.center radius: 150 startAngle: 0 endAngle: 2 * M_PI clockwise:TRUE];
     //draw  main circle
     circleShapeLayer.path = circlePath.CGPath;
-    circleShapeLayer.strokeColor = UIColor.blueColor.CGColor;
-    circleShapeLayer.lineWidth = 10;
+    //circleShapeLayer.strokeColor = UIColor.blueColor.CGColor;
+    //circleShapeLayer.lineWidth = 10;
     circleShapeLayer.fillColor = [[UIColor clearColor] CGColor];
     
     //Add image buttons to view
@@ -57,6 +57,36 @@
     [self.mainHomeView addSubview:meditateView];
     [self.mainHomeView addSubview:journalView];
     [self.mainHomeView addSubview:playView];
+    
+    //Add Labels to Views
+    UILabel *breathLabel = [[UILabel alloc] initWithFrame:CGRectMake(breathView.center.x - 40, breathView.center.y - 10, 80, 30)]; //[UILabel new];
+    UILabel *meditateLabel = [[UILabel alloc] initWithFrame:CGRectMake(meditateView.center.x - 40, meditateView.center.y - 10, 80, 30)];
+    UILabel *journalLabel = [[UILabel alloc] initWithFrame:CGRectMake(journalView.center.x - 40, journalView.center.y - 10, 80, 30)];
+    UILabel *playLabel = [[UILabel alloc] initWithFrame:CGRectMake(playView.center.x - 40, playView.center.y - 10, 80, 30)];
+//    breathLabel.textColor = UIColor.blackColor;
+    breathLabel.text = @"Breath";
+    meditateLabel.text = @"Meditate";
+    journalLabel.text = @"Journal";
+    playLabel.text = @"Play";
+    
+    [breathLabel setTextColor:[UIColor blackColor]];
+    [meditateLabel setTextColor:[UIColor blackColor]];
+    [journalLabel setTextColor:[UIColor blackColor]];
+    [playLabel setTextColor:[UIColor blackColor]];
+    
+     breathLabel.textAlignment = NSTextAlignmentCenter;
+     meditateLabel.textAlignment = NSTextAlignmentCenter;
+     journalLabel.textAlignment = NSTextAlignmentCenter;
+     playLabel.textAlignment = NSTextAlignmentCenter;
+    //[breathLabel setFont:[UIFont fontWithName: @"Arial" size:16]];
+    
+    //breathLabel.center = CGPointMake(breathView.center.x, breathView.center.y);
+    
+    [self.mainHomeView addSubview:breathLabel];
+    [self.mainHomeView addSubview:meditateLabel];
+    [self.mainHomeView addSubview:journalLabel];
+    [self.mainHomeView addSubview:playLabel];
+    
 }
 
 @end
