@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
 
 }
 
@@ -84,6 +86,43 @@
     [self.mainHomeView addSubview:journalLabel];
     [self.mainHomeView addSubview:playLabel];
     
+    //Add gesture recognizer to Views
+    breathView.userInteractionEnabled = TRUE;
+    meditateView.userInteractionEnabled = TRUE;
+    journalView.userInteractionEnabled = TRUE;
+    playView.userInteractionEnabled = TRUE;
+    
+    UITapGestureRecognizer *breathTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleBreathTap)];
+    UITapGestureRecognizer *meditateTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMeditateTap)];
+    UITapGestureRecognizer *journalTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleJournalTap)];
+    UITapGestureRecognizer *playTap = [[UITapGestureRecognizer alloc]
+        initWithTarget:self action:@selector(handlePlayTap)];
+    
+    [breathView addGestureRecognizer: breathTap];
+    [breathView addGestureRecognizer: meditateTap];
+    [breathView addGestureRecognizer: journalTap];
+    [breathView addGestureRecognizer: playTap];
+    
 }
+
+- (void)handleBreathTap {
+   // segue to the breath View controller
+}
+- (void)handleMeditateTap {
+    // segue to the meditate View controller
+}
+- (void)handleJournalTap {
+    // segue to the journal View controller
+}
+- (void)handlePlayTap {
+    // segue to the play View controller
+}
+
+
+
+
+
+
+
 
 @end

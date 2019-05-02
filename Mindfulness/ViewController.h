@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <SceneKit/SceneKit.h>
 
-@interface ViewController : UIViewController
+
+@interface ViewController : UIViewController<UIGestureRecognizerDelegate>
 
 
 
