@@ -19,7 +19,11 @@
 @property (weak, nonatomic) IBOutlet UIView *journalButton;
 @property (weak, nonatomic) IBOutlet UIView *playButton;
 
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *breathTapGesture;
 
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *playTapGesture;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *journalTapGesture;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *meditateTapGesture;
 
 
 
@@ -32,9 +36,9 @@
 @implementation ViewController
 
 UIView *breathView;
-//UIView *meditateView;
-//UIView *journalView;
-//UIView *playView;
+UIView *meditateView;
+UIView *journalView;
+UIView *playView;
 
 
 
@@ -51,7 +55,7 @@ UIView *breathView;
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    //[self drawCircleAndButtons];
+    [self drawCircleAndButtons];
 }
 
 -(void)drawCircleAndButtons {
@@ -67,9 +71,9 @@ UIView *breathView;
     
     //Add image buttons to view
     breathView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 100, circlePath.currentPoint.y - 50, 100, 100)];
-    UIView *meditateView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y + 150, 100, 100)];
-    UIView *journalView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 300, circlePath.currentPoint.y - 50, 100, 100)];
-    UIView *playView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y - 250, 100, 100)];
+    meditateView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y + 150, 100, 100)];
+    journalView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 300, circlePath.currentPoint.y - 50, 100, 100)];
+    playView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y - 250, 100, 100)];
     
     breathView.layer.cornerRadius = 50;
     meditateView.layer.cornerRadius = 50;
@@ -118,17 +122,6 @@ UIView *breathView;
     journalView.userInteractionEnabled = YES;
     playView.userInteractionEnabled = YES;
     
-//    UITapGestureRecognizer *breathTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleBreathTap)];
-//    UITapGestureRecognizer *meditateTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMeditateTap)];
-//    UITapGestureRecognizer *journalTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleJournalTap)];
-//    UITapGestureRecognizer *playTap = [[UITapGestureRecognizer alloc]
-//        initWithTarget:self action:@selector(handlePlayTap)];
-//
-//    [breathView addGestureRecognizer: breathTap];
-//    [breathView addGestureRecognizer: meditateTap];
-//    [breathView addGestureRecognizer: journalTap];
-//    [breathView addGestureRecognizer: playTap];
-    [self tapGestures];
 }
 
 -(void)tapGestures {
@@ -139,9 +132,9 @@ UIView *breathView;
         initWithTarget:self action:@selector(handlePlayTap)];
     
     [breathView addGestureRecognizer: breathTap];
-    [breathView addGestureRecognizer: meditateTap];
-    [breathView addGestureRecognizer: journalTap];
-    [breathView addGestureRecognizer: playTap];
+    [meditateView addGestureRecognizer: meditateTap];
+    [journalView addGestureRecognizer: journalTap];
+    [playView addGestureRecognizer: playTap];
 
 }
 
@@ -151,8 +144,8 @@ UIView *breathView;
 - (void)handleBreathTap {
    // segue to the breath View controller
     NSLog(@"BREATH TAPPED");
-    ViewController *breathVC = [[ViewController alloc]init];
-    [self presentViewController:breathVC animated:YES completion:nil];
+//    ViewController *breathVC = [[ViewController alloc]init];
+//    [self presentViewController:breathVC animated:YES completion:nil];
     
 }
 - (void)handleMeditateTap {
@@ -183,8 +176,18 @@ UIView *breathView;
     
 }
 
-
-
+- (IBAction)breathTapPressed:(UITapGestureRecognizer *)sender {
+    
+}
+- (IBAction)playTapPressed:(UITapGestureRecognizer *)sender {
+    
+}
+- (IBAction)journalTapPressed:(UITapGestureRecognizer *)sender {
+    
+}
+- (IBAction)meditateTapPressed:(UITapGestureRecognizer *)sender {
+    
+}
 
 
 @end

@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8s-HP-mME">
                                 <rect key="frame" x="0.0" y="60" width="232" height="605"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qVc-MT-IgJ">
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qVc-MT-IgJ">
                                         <rect key="frame" x="16" y="16" width="200" height="573"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbe-Cz-Y4L">
@@ -38,6 +38,7 @@
                                                             </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="xnb-ed-nZM" secondAttribute="trailing" constant="10" id="Hzu-Dl-Px2"/>
                                                             <constraint firstAttribute="width" constant="100" id="SlM-lE-6Sa"/>
@@ -45,6 +46,9 @@
                                                             <constraint firstItem="xnb-ed-nZM" firstAttribute="leading" secondItem="Abl-FB-Wrd" secondAttribute="leading" constant="10" id="siM-UB-Wjc"/>
                                                             <constraint firstAttribute="height" constant="100" id="w1k-wu-Tlc"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="CD1-bq-Erp" appends="YES" id="Jk5-BG-NZ3"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,12 +74,16 @@
                                                                     </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <gestureRecognizers/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="Nhn-sj-N5Q" secondAttribute="height" multiplier="1:1" id="IGW-PU-Yc3"/>
                                                                     <constraint firstAttribute="trailing" secondItem="rDi-UN-wwz" secondAttribute="trailing" constant="10" id="V1f-Df-LYq"/>
                                                                     <constraint firstItem="rDi-UN-wwz" firstAttribute="leading" secondItem="Nhn-sj-N5Q" secondAttribute="leading" constant="10" id="Ydz-Q6-GrR"/>
                                                                     <constraint firstItem="rDi-UN-wwz" firstAttribute="top" secondItem="Nhn-sj-N5Q" secondAttribute="top" constant="39" id="iiN-lq-98f"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="RhW-DV-LP1" appends="YES" id="sO8-kt-tH2"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wj-oe-pcG" userLabel="journalView">
                                                                 <rect key="frame" x="100" y="0.0" width="100" height="100"/>
@@ -88,6 +96,7 @@
                                                                     </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <gestureRecognizers/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="100" id="7Vo-zr-yyY"/>
                                                                     <constraint firstAttribute="height" constant="100" id="Kxe-Dm-q8z"/>
@@ -96,6 +105,9 @@
                                                                     <constraint firstAttribute="trailing" secondItem="UYF-Rm-8Vg" secondAttribute="trailing" constant="10" id="aqp-TM-IwV"/>
                                                                     <constraint firstItem="UYF-Rm-8Vg" firstAttribute="top" secondItem="3Wj-oe-pcG" secondAttribute="top" constant="39" id="f47-CS-Yij"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="Sui-5B-jKC" appends="YES" id="ZOb-ac-zVm"/>
+                                                                </connections>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
@@ -124,6 +136,7 @@
                                                             </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="2as-SC-Wos"/>
                                                             <constraint firstAttribute="width" constant="100" id="IKD-ZU-LxJ"/>
@@ -131,6 +144,9 @@
                                                             <constraint firstItem="aT9-pw-Kbw" firstAttribute="top" secondItem="dC6-Lw-VAf" secondAttribute="top" constant="39" id="Pkq-g6-AYc"/>
                                                             <constraint firstItem="aT9-pw-Kbw" firstAttribute="leading" secondItem="dC6-Lw-VAf" secondAttribute="leading" constant="10" id="Z1k-M0-300"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="bkQ-aO-8aw" appends="YES" id="ylO-Ce-BY4"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -180,13 +196,37 @@
                     </view>
                     <connections>
                         <outlet property="breathButton" destination="Abl-FB-Wrd" id="eAG-8t-SbA"/>
+                        <outlet property="breathTapGesture" destination="CD1-bq-Erp" id="D9o-u0-2gg"/>
                         <outlet property="journalButton" destination="3Wj-oe-pcG" id="eY1-PX-b5Y"/>
+                        <outlet property="journalTapGesture" destination="Sui-5B-jKC" id="B7U-Er-AYe"/>
                         <outlet property="mainHomeView" destination="a8s-HP-mME" id="awe-D6-N9t"/>
                         <outlet property="meditateButton" destination="dC6-Lw-VAf" id="HA6-3q-iA4"/>
+                        <outlet property="meditateTapGesture" destination="bkQ-aO-8aw" id="kIU-s3-yQz"/>
                         <outlet property="playButton" destination="Nhn-sj-N5Q" id="29R-yZ-9JU"/>
+                        <outlet property="playTapGesture" destination="RhW-DV-LP1" id="HaI-zA-b04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="CD1-bq-Erp" userLabel="breathTap Gesture Recognizer">
+                    <connections>
+                        <action selector="breathTapPressed:" destination="BYZ-38-t0r" id="tWe-LX-evY"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="RhW-DV-LP1" userLabel="playTap Gesture Recognizer">
+                    <connections>
+                        <action selector="playTapPressed:" destination="BYZ-38-t0r" id="UFN-f5-mve"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Sui-5B-jKC" userLabel="journalTap Gesture Recognizer">
+                    <connections>
+                        <action selector="journalTapPressed:" destination="BYZ-38-t0r" id="qza-Ru-MHo"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bkQ-aO-8aw" userLabel="meditateTap Gesture Recognizer">
+                    <connections>
+                        <action selector="meditateTapPressed:" destination="BYZ-38-t0r" id="ZKM-6O-06H"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </scene>
