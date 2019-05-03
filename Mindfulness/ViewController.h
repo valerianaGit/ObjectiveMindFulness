@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <SceneKit/SceneKit.h>
-
+#import "BreathViewController.h"
 
 @interface ViewController : UIViewController<UIGestureRecognizerDelegate>
 
-
+//make a new instance of breath view controller
+@property BreathViewController *breathVC;
 
 
 @end

@@ -151,8 +151,9 @@ UIView *playView;
 //
 //    }
     NSLog(@"BREATH TAPPED");
-//    ViewController *breathVC = [[ViewController alloc]init];
-//    [self presentViewController:breathVC animated:YES completion:nil];
+    self.breathVC = [[BreathViewController alloc]init];
+    
+    [self presentViewController:self.breathVC animated:YES completion:nil];
     
 }
 - (void)handleMeditateTap {
@@ -169,36 +170,6 @@ UIView *playView;
      NSLog(@"play TAPPED");
 }
 
-//-(void) customizeViews {
-//
-//
-//    self.breathButton.layer.cornerRadius = self.breathButton.frame.size.width / 2;
-//    self.meditateButton.layer.cornerRadius = self.meditateButton.frame.size.width / 2;
-//    self.journalButton.layer.cornerRadius = 50;
-//    self.playButton.layer.cornerRadius = 50;
-//
-//    self.breathButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
-//    self.meditateButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
-//    self.journalButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
-//    self.playButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
-//
-//
-//
-//
-//}
-
-- (IBAction)breathTapPressed:(UITapGestureRecognizer *)sender {
-    
-}
-- (IBAction)playTapPressed:(UITapGestureRecognizer *)sender {
-    
-}
-- (IBAction)journalTapPressed:(UITapGestureRecognizer *)sender {
-    
-}
-- (IBAction)meditateTapPressed:(UITapGestureRecognizer *)sender {
-    
-}
 
 
 @end
