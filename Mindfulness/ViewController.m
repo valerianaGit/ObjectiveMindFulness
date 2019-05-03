@@ -50,6 +50,10 @@ UIView *playView;
     [super viewDidLoad];
     [self customizeViews];
     [self tapGestures];
+    
+  
+    
+    
 
 }
 
@@ -135,7 +139,6 @@ UIView *playView;
     [meditateView addGestureRecognizer: meditateTap];
     [journalView addGestureRecognizer: journalTap];
     [playView addGestureRecognizer: playTap];
-
 }
 
 
