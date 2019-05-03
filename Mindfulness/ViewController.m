@@ -11,30 +11,11 @@
 
 @interface ViewController ()
 
-//MARK: Properties
-@property (weak, nonatomic) IBOutlet UIView *mainHomeView;
-
-@property (weak, nonatomic) IBOutlet UIView *breathButton;
-@property (weak, nonatomic) IBOutlet UIView *meditateButton;
-@property (weak, nonatomic) IBOutlet UIView *journalButton;
-@property (weak, nonatomic) IBOutlet UIView *playButton;
-
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *breathTapGesture;
-
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *playTapGesture;
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *journalTapGesture;
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *meditateTapGesture;
-
-
-
-
-
-
 
 @end
 
 @implementation ViewController
-
+// MARK: - Properties
 UIView *breathView;
 UIView *meditateView;
 UIView *journalView;
@@ -42,13 +23,9 @@ UIView *playView;
 
 
 
-
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self customizeViews];
+    [self drawCircleAndButtons];
     [self tapGestures];
     
   
@@ -59,14 +36,20 @@ UIView *playView;
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    [self drawCircleAndButtons];
+  
 }
 
+//MARK: - UI
+
 -(void)drawCircleAndButtons {
+    
+    UIView *mainHomeView = [[UIView alloc] initWithFrame:CGRectMake(8, 16, self.view.frame.size.width - 32, self.view.frame.size.height - 32)];
+    [self.view addSubview:mainHomeView];
+    
     CAShapeLayer *circleShapeLayer = [CAShapeLayer layer];
-    [self.mainHomeView.layer addSublayer:circleShapeLayer];
+    [mainHomeView.layer addSublayer:circleShapeLayer];
     UIBezierPath* circlePath = [UIBezierPath bezierPath];
-    [circlePath addArcWithCenter:self.mainHomeView.center radius: 150 startAngle: 0 endAngle: 2 * M_PI clockwise:YES];
+    [circlePath addArcWithCenter:mainHomeView.center radius: 150 startAngle: 0 endAngle: 2 * M_PI clockwise:YES];
     //draw  main circle
     circleShapeLayer.path = circlePath.CGPath;
 //    circleShapeLayer.strokeColor = UIColor.blueColor.CGColor;
@@ -89,10 +72,10 @@ UIView *playView;
     journalView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
     playView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
     
-    [self.mainHomeView addSubview:breathView];
-    [self.mainHomeView addSubview:meditateView];
-    [self.mainHomeView addSubview:journalView];
-    [self.mainHomeView addSubview:playView];
+    [mainHomeView addSubview:breathView];
+    [mainHomeView addSubview:meditateView];
+    [mainHomeView addSubview:journalView];
+    [mainHomeView addSubview:playView];
     
     //Add Labels to Views
     UILabel *breathLabel = [[UILabel alloc] initWithFrame:CGRectMake(breathView.center.x - 40, breathView.center.y - 10, 80, 30)];
@@ -115,25 +98,39 @@ UIView *playView;
      journalLabel.textAlignment = NSTextAlignmentCenter;
      playLabel.textAlignment = NSTextAlignmentCenter;
    
-    [self.mainHomeView addSubview:breathLabel];
-    [self.mainHomeView addSubview:meditateLabel];
-    [self.mainHomeView addSubview:journalLabel];
-    [self.mainHomeView addSubview:playLabel];
+    [mainHomeView addSubview:breathLabel];
+    [mainHomeView addSubview:meditateLabel];
+    [mainHomeView addSubview:journalLabel];
+    [mainHomeView addSubview:playLabel];
     
-    //Add gesture recognizer to Views
-    breathView.userInteractionEnabled = YES;
+    //breathView.userInteractionEnabled = YES;
+    [breathView setUserInteractionEnabled:YES];
     meditateView.userInteractionEnabled = YES;
     journalView.userInteractionEnabled = YES;
     playView.userInteractionEnabled = YES;
     
+    
 }
 
+//MARK: Gesture Recognizers
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+
+
 -(void)tapGestures {
-    UITapGestureRecognizer *breathTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleBreathTap)];
+    UITapGestureRecognizer *breathTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleBreathTap:)];
     UITapGestureRecognizer *meditateTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMeditateTap)];
     UITapGestureRecognizer *journalTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleJournalTap)];
     UITapGestureRecognizer *playTap = [[UITapGestureRecognizer alloc]
         initWithTarget:self action:@selector(handlePlayTap)];
+    
+    breathTap.delegate = self;
+    meditateTap.delegate = self;
+    journalTap.delegate = self;
+    playTap.delegate = self;
+    
     
     [breathView addGestureRecognizer: breathTap];
     [meditateView addGestureRecognizer: meditateTap];
@@ -144,8 +141,15 @@ UIView *playView;
 
 
 
-- (void)handleBreathTap {
+- (void)handleBreathTap:(UITapGestureRecognizer *)sender {
    // segue to the breath View controller
+    CGPoint breathLocation = [sender locationInView:breathView];
+//     CGPoint meditateLocation = [sender locationInView:meditateView];
+//    CGPoint journalLocation = [sender locationInView:journalView];
+//    CGPoint playLocation = [sender locationInView:playView];
+//    if (sender.breathLocation) {
+//
+//    }
     NSLog(@"BREATH TAPPED");
 //    ViewController *breathVC = [[ViewController alloc]init];
 //    [self presentViewController:breathVC animated:YES completion:nil];
@@ -153,31 +157,35 @@ UIView *playView;
 }
 - (void)handleMeditateTap {
     // segue to the meditate View controller
+     NSLog(@"MEDITATION TAPPED");
+    
 }
 - (void)handleJournalTap {
     // segue to the journal View controller
+     NSLog(@"journal TAPPED");
 }
 - (void)handlePlayTap {
     // segue to the play View controller
+     NSLog(@"play TAPPED");
 }
 
--(void) customizeViews {
-    
-    
-    self.breathButton.layer.cornerRadius = self.breathButton.frame.size.width / 2;
-    self.meditateButton.layer.cornerRadius = self.meditateButton.frame.size.width / 2;
-    self.journalButton.layer.cornerRadius = 50;
-    self.playButton.layer.cornerRadius = 50;
-    
-    self.breathButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
-    self.meditateButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
-    self.journalButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
-    self.playButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
-    
-    
-    
-    
-}
+//-(void) customizeViews {
+//
+//
+//    self.breathButton.layer.cornerRadius = self.breathButton.frame.size.width / 2;
+//    self.meditateButton.layer.cornerRadius = self.meditateButton.frame.size.width / 2;
+//    self.journalButton.layer.cornerRadius = 50;
+//    self.playButton.layer.cornerRadius = 50;
+//
+//    self.breathButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
+//    self.meditateButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
+//    self.journalButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
+//    self.playButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"breath"]];
+//
+//
+//
+//
+//}
 
 - (IBAction)breathTapPressed:(UITapGestureRecognizer *)sender {
     
