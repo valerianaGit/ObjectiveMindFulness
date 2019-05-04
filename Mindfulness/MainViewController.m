@@ -138,7 +138,7 @@ UIView *playView;
 //MARK: - Actions and Segues
 
 - (void)handleBreathTap:(UITapGestureRecognizer *)sender {
-   // segue to the breath View controller
+ 
     CGPoint breathLocation = [sender locationInView:breathView];
 //     CGPoint meditateLocation = [sender locationInView:meditateView];
 //    CGPoint journalLocation = [sender locationInView:journalView];
@@ -153,7 +153,7 @@ UIView *playView;
    // [self presentViewController:self.breathVC animated:YES completion:nil];
 }
 - (void)handleMeditateTap {
-    // segue to the meditate View controller
+ 
      NSLog(@"MEDITATION TAPPED");
     self.meditateVC = [[MeditateCollectionViewController alloc]init];
     self.meditateVC.view.frame = CGRectMake(mainHomeView.frame.origin.x, mainHomeView.frame.origin.y, mainHomeView.frame.size.width, mainHomeView.frame.size.height);
@@ -161,7 +161,7 @@ UIView *playView;
     //[self presentViewController:self.meditateVC animated:YES completion:nil];
 }
 - (void)handleJournalTap {
-    // segue to the journal View controller
+    
      NSLog(@"journal TAPPED");
     self.journalVC = [[JournalTableViewController alloc] init];
     self.journalVC.view.frame = CGRectMake(mainHomeView.frame.origin.x, mainHomeView.frame.origin.y, mainHomeView.frame.size.width, mainHomeView.frame.size.height);
@@ -169,7 +169,7 @@ UIView *playView;
    // [self presentViewController:self.journalVC animated:YES completion:nil];
 }
 - (void)handlePlayTap {
-    // segue to the play View controller
+    
      NSLog(@"play TAPPED");
     self.playVC = [[PlayCollectionViewController alloc]init];
     self.playVC.view.frame = CGRectMake(mainHomeView.frame.origin.x, mainHomeView.frame.origin.y, mainHomeView.frame.size.width, mainHomeView.frame.size.height);
