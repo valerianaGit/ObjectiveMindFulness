@@ -26,8 +26,14 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     // Do any additional setup after loading the view.
+    [self setupViews];
 }
-
+-(void) setupViews {
+    UIView *meditateMainView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+                                //CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [meditateMainView setBackgroundColor:UIColor.whiteColor];
+    [self.view addSubview:meditateMainView];
+}
 /*
 #pragma mark - Navigation
 

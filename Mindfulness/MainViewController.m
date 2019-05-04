@@ -1,20 +1,20 @@
 //
-//  ViewController.m
+//  MainViewController.m
 //  Mindfulness
 //
 //  Created by Valeria Duran on 4/29/19.
 //  Copyright © 2019 Valeria Duran. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 
 
-@interface ViewController ()
+@interface MainViewController ()
 
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 // MARK: - Properties
 UIView *breathView;
 UIView *meditateView;
@@ -42,25 +42,22 @@ UIView *playView;
 //MARK: - UI
 
 -(void)drawCircleAndButtons {
-    
-    UIView *mainHomeView = [[UIView alloc] initWithFrame:CGRectMake(8, 16, self.view.frame.size.width - 32, self.view.frame.size.height - 32)];
+    //draw main view
+    UIView *mainHomeView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+                            //CGRectMake(8, 50, self.view.frame.size.width - 32, self.view.frame.size.height - 140)];
     [self.view addSubview:mainHomeView];
-    
+    //draw  main circle
     CAShapeLayer *circleShapeLayer = [CAShapeLayer layer];
     [mainHomeView.layer addSublayer:circleShapeLayer];
     UIBezierPath* circlePath = [UIBezierPath bezierPath];
     [circlePath addArcWithCenter:mainHomeView.center radius: 150 startAngle: 0 endAngle: 2 * M_PI clockwise:YES];
-    //draw  main circle
     circleShapeLayer.path = circlePath.CGPath;
-//    circleShapeLayer.strokeColor = UIColor.blueColor.CGColor;
-//    circleShapeLayer.lineWidth = 10;
     circleShapeLayer.fillColor = [[UIColor clearColor] CGColor];
-    
     //Add image buttons to view
     breathView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 100, circlePath.currentPoint.y - 50, 100, 100)];
-    meditateView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y + 150, 100, 100)];
+    meditateView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y + 100, 100, 100)];
     journalView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 300, circlePath.currentPoint.y - 50, 100, 100)];
-    playView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y - 250, 100, 100)];
+    playView = [[UIView alloc] initWithFrame:CGRectMake( circlePath.currentPoint.x - 200, circlePath.currentPoint.y - 200, 100, 100)];
     
     breathView.layer.cornerRadius = 50;
     meditateView.layer.cornerRadius = 50;
@@ -103,16 +100,14 @@ UIView *playView;
     [mainHomeView addSubview:journalLabel];
     [mainHomeView addSubview:playLabel];
     
-    //breathView.userInteractionEnabled = YES;
-    [breathView setUserInteractionEnabled:YES];
+    breathView.userInteractionEnabled = YES;
     meditateView.userInteractionEnabled = YES;
     journalView.userInteractionEnabled = YES;
     playView.userInteractionEnabled = YES;
     
-    
 }
 
-//MARK: Gesture Recognizers
+//MARK: - Gesture Recognizers
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
@@ -139,7 +134,7 @@ UIView *playView;
 }
 
 
-
+//MARK: - Actions and Segues
 
 - (void)handleBreathTap:(UITapGestureRecognizer *)sender {
    // segue to the breath View controller
@@ -151,24 +146,34 @@ UIView *playView;
 //
 //    }
     NSLog(@"BREATH TAPPED");
-    self.breathVC = [[BreathViewController alloc]init];
-    
+    self.breathVC = [[BreathViewController alloc] init];
     [self presentViewController:self.breathVC animated:YES completion:nil];
     
 }
 - (void)handleMeditateTap {
     // segue to the meditate View controller
      NSLog(@"MEDITATION TAPPED");
-    
+    self.meditateVC = [[MeditateCollectionViewController alloc]init];
+    [self presentViewController:self.meditateVC animated:YES completion:nil];
 }
 - (void)handleJournalTap {
     // segue to the journal View controller
      NSLog(@"journal TAPPED");
+    self.journalVC = [[JournalTableViewController alloc] init];
+    [self presentViewController:self.journalVC animated:YES completion:nil];
 }
 - (void)handlePlayTap {
     // segue to the play View controller
      NSLog(@"play TAPPED");
+    self.playVC = [[PlayCollectionViewController alloc]init];
+    [self presentViewController:self.playVC animated:YES completion:nil];
 }
+
+
+
+
+
+
 
 
 

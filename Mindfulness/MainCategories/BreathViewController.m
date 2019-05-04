@@ -20,7 +20,8 @@
 }
 
 -(void) setupViews {
-    UIView *breathMainView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    UIView *breathMainView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];                              //CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [breathMainView setBackgroundColor:UIColor.whiteColor];
     [self.view addSubview:breathMainView];
 }
 

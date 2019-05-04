@@ -12,8 +12,7 @@
 		92CA8F74227D017F00BD8D72 /* MeditateCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CA8F73227D017F00BD8D72 /* MeditateCollectionViewController.m */; };
 		92CA8F77227D019200BD8D72 /* PlayCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CA8F76227D019100BD8D72 /* PlayCollectionViewController.m */; };
 		92CE7A2822776120005C2B8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CE7A2722776120005C2B8B /* AppDelegate.m */; };
-		92CE7A2B22776120005C2B8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CE7A2A22776120005C2B8B /* ViewController.m */; };
-		92CE7A2E22776120005C2B8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CE7A2C22776120005C2B8B /* Main.storyboard */; };
+		92CE7A2B22776120005C2B8B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CE7A2A22776120005C2B8B /* MainViewController.m */; };
 		92CE7A3022776122005C2B8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92CE7A2F22776122005C2B8B /* Assets.xcassets */; };
 		92CE7A3322776122005C2B8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CE7A3122776122005C2B8B /* LaunchScreen.storyboard */; };
 		92CE7A3622776122005C2B8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CE7A3522776122005C2B8B /* main.m */; };
@@ -31,9 +30,8 @@
 		92CE7A2322776120005C2B8B /* Mindfulness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mindfulness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CE7A2622776120005C2B8B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		92CE7A2722776120005C2B8B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		92CE7A2922776120005C2B8B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		92CE7A2A22776120005C2B8B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		92CE7A2D22776120005C2B8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		92CE7A2922776120005C2B8B /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		92CE7A2A22776120005C2B8B /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		92CE7A2F22776122005C2B8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92CE7A3222776122005C2B8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92CE7A3422776122005C2B8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +49,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92CA8F78227D01D800BD8D72 /* MainCategories */ = {
+			isa = PBXGroup;
+			children = (
+				92CA8F6C227CFDB900BD8D72 /* BreathViewController.h */,
+				92CA8F6D227CFDB900BD8D72 /* BreathViewController.m */,
+				92CA8F72227D017F00BD8D72 /* MeditateCollectionViewController.h */,
+				92CA8F73227D017F00BD8D72 /* MeditateCollectionViewController.m */,
+				92CA8F6F227D016700BD8D72 /* JournalTableViewController.h */,
+				92CA8F70227D016700BD8D72 /* JournalTableViewController.m */,
+				92CA8F75227D019100BD8D72 /* PlayCollectionViewController.h */,
+				92CA8F76227D019100BD8D72 /* PlayCollectionViewController.m */,
+			);
+			path = MainCategories;
+			sourceTree = "<group>";
+		};
 		92CE7A1A22776120005C2B8B = {
 			isa = PBXGroup;
 			children = (
@@ -72,17 +85,9 @@
 			children = (
 				92CE7A2622776120005C2B8B /* AppDelegate.h */,
 				92CE7A2722776120005C2B8B /* AppDelegate.m */,
-				92CE7A2922776120005C2B8B /* ViewController.h */,
-				92CE7A2A22776120005C2B8B /* ViewController.m */,
-				92CA8F72227D017F00BD8D72 /* MeditateCollectionViewController.h */,
-				92CA8F73227D017F00BD8D72 /* MeditateCollectionViewController.m */,
-				92CA8F6F227D016700BD8D72 /* JournalTableViewController.h */,
-				92CA8F70227D016700BD8D72 /* JournalTableViewController.m */,
-				92CA8F6C227CFDB900BD8D72 /* BreathViewController.h */,
-				92CA8F75227D019100BD8D72 /* PlayCollectionViewController.h */,
-				92CA8F76227D019100BD8D72 /* PlayCollectionViewController.m */,
-				92CA8F6D227CFDB900BD8D72 /* BreathViewController.m */,
-				92CE7A2C22776120005C2B8B /* Main.storyboard */,
+				92CE7A2922776120005C2B8B /* MainViewController.h */,
+				92CE7A2A22776120005C2B8B /* MainViewController.m */,
+				92CA8F78227D01D800BD8D72 /* MainCategories */,
 				92CE7A2F22776122005C2B8B /* Assets.xcassets */,
 				92CE7A3122776122005C2B8B /* LaunchScreen.storyboard */,
 				92CE7A3422776122005C2B8B /* Info.plist */,
@@ -150,7 +155,6 @@
 			files = (
 				92CE7A3322776122005C2B8B /* LaunchScreen.storyboard in Resources */,
 				92CE7A3022776122005C2B8B /* Assets.xcassets in Resources */,
-				92CE7A2E22776120005C2B8B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,7 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92CA8F71227D016700BD8D72 /* JournalTableViewController.m in Sources */,
-				92CE7A2B22776120005C2B8B /* ViewController.m in Sources */,
+				92CE7A2B22776120005C2B8B /* MainViewController.m in Sources */,
 				92CE7A3622776122005C2B8B /* main.m in Sources */,
 				92CA8F77227D019200BD8D72 /* PlayCollectionViewController.m in Sources */,
 				92CA8F74227D017F00BD8D72 /* MeditateCollectionViewController.m in Sources */,
@@ -174,14 +178,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		92CE7A2C22776120005C2B8B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				92CE7A2D22776120005C2B8B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		92CE7A3122776122005C2B8B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
