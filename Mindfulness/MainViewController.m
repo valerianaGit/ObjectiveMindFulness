@@ -16,6 +16,7 @@
 
 @implementation MainViewController
 // MARK: - Properties
+UIView *mainHomeView;
 UIView *breathView;
 UIView *meditateView;
 UIView *journalView;
@@ -43,7 +44,7 @@ UIView *playView;
 
 -(void)drawCircleAndButtons {
     //draw main view
-    UIView *mainHomeView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    mainHomeView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
                             //CGRectMake(8, 50, self.view.frame.size.width - 32, self.view.frame.size.height - 140)];
     [self.view addSubview:mainHomeView];
     //draw  main circle
@@ -147,26 +148,33 @@ UIView *playView;
 //    }
     NSLog(@"BREATH TAPPED");
     self.breathVC = [[BreathViewController alloc] init];
-    [self presentViewController:self.breathVC animated:YES completion:nil];
-    
+    self.breathVC.view.frame = CGRectMake(mainHomeView.frame.origin.x, mainHomeView.frame.origin.y, mainHomeView.frame.size.width, mainHomeView.frame.size.height);
+    [self.view addSubview:self.breathVC.view];
+   // [self presentViewController:self.breathVC animated:YES completion:nil];
 }
 - (void)handleMeditateTap {
     // segue to the meditate View controller
      NSLog(@"MEDITATION TAPPED");
     self.meditateVC = [[MeditateCollectionViewController alloc]init];
-    [self presentViewController:self.meditateVC animated:YES completion:nil];
+    self.meditateVC.view.frame = CGRectMake(mainHomeView.frame.origin.x, mainHomeView.frame.origin.y, mainHomeView.frame.size.width, mainHomeView.frame.size.height);
+    [self.view addSubview:self.meditateVC.view];
+    //[self presentViewController:self.meditateVC animated:YES completion:nil];
 }
 - (void)handleJournalTap {
     // segue to the journal View controller
      NSLog(@"journal TAPPED");
     self.journalVC = [[JournalTableViewController alloc] init];
-    [self presentViewController:self.journalVC animated:YES completion:nil];
+    self.journalVC.view.frame = CGRectMake(mainHomeView.frame.origin.x, mainHomeView.frame.origin.y, mainHomeView.frame.size.width, mainHomeView.frame.size.height);
+    [self.view addSubview:self.journalVC.view];
+   // [self presentViewController:self.journalVC animated:YES completion:nil];
 }
 - (void)handlePlayTap {
     // segue to the play View controller
      NSLog(@"play TAPPED");
     self.playVC = [[PlayCollectionViewController alloc]init];
-    [self presentViewController:self.playVC animated:YES completion:nil];
+    self.playVC.view.frame = CGRectMake(mainHomeView.frame.origin.x, mainHomeView.frame.origin.y, mainHomeView.frame.size.width, mainHomeView.frame.size.height);
+    [self.view addSubview:self.playVC.view];
+   // [self presentViewController:self.playVC animated:YES completion:nil];
 }
 
 
