@@ -22,7 +22,7 @@ CAShapeLayer *circleShapeLayer;
 }
 
 -(void) setupViews {
-    UIView *breathMainView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];                              //CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    UIView *breathMainView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];                           
     [breathMainView setBackgroundColor:UIColor.whiteColor];
     [self.view addSubview:breathMainView];
     //draw  main circle
@@ -50,14 +50,11 @@ CAShapeLayer *circleShapeLayer;
 }
 
 - (void) handleBreathTap:(UITapGestureRecognizer *)recognizer {
-    //CGPoint location = [recognizer locationInView:[recognizer.view superview]];
     NSLog(@"BREATH Button TAPPED");
     CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    basicAnimation.toValue = 0;//[NSValue valueWithCGPoint: circleShapeLayer.position];
-    basicAnimation.fromValue = [NSValue valueWithCGPoint: circleShapeLayer.position]; //1;
+    basicAnimation.toValue = 0;
+    basicAnimation.fromValue = [NSValue valueWithCGPoint: circleShapeLayer.position];
     basicAnimation.duration = 2;
-    //basicAnimation.fillMode = kCAFillModeBackwards;
-   // [basicAnimation isRemovedOnCompletion];
     [circleShapeLayer addAnimation:basicAnimation forKey:basicAnimation.keyPath];
 }
 
