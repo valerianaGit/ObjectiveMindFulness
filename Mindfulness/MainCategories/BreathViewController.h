@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BreathViewController : UIViewController<NSURLSessionDownloadDelegate>
+@interface BreathViewController : UIViewController
 
 @end
 
