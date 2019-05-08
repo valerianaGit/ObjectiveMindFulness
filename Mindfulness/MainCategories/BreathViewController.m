@@ -13,7 +13,7 @@
 @end
 
 CAShapeLayer *circleShapeLayer;
-
+UILabel *downloadPercentageLabel;
 @implementation BreathViewController
 
 NSString *urlString = @"https://firebasestorage.googleapis.com/v0/b/firestorechat-e64ac.appspot.com/o/intermediate_training_rec.mp4?alt=media&token=e20261d0-7219-49d2-b32d-367e1606500c";
@@ -27,16 +27,26 @@ NSString *urlString = @"https://firebasestorage.googleapis.com/v0/b/firestorecha
     UIView *breathMainView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [breathMainView setBackgroundColor:UIColor.whiteColor];
     [self.view addSubview:breathMainView];
+    //Add center label
+    downloadPercentageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    downloadPercentageLabel.text = @"Breath";
+    downloadPercentageLabel.textAlignment = NSTextAlignmentCenter;
+    downloadPercentageLabel.center = self.view.center;
+    [self.view addSubview:downloadPercentageLabel];
+    
+    
     //draw  main circle
     UIBezierPath* circlePath = [UIBezierPath bezierPath];
-    [circlePath addArcWithCenter:breathMainView.center radius: 100 startAngle: -(M_PI / 2) endAngle: 2 * M_PI clockwise:YES];
+    [circlePath addArcWithCenter:CGPointZero radius: 100 startAngle: 0 endAngle: 2 * M_PI clockwise:YES];
     //grey base track
     CAShapeLayer *track = [CAShapeLayer layer];
     track.path = circlePath.CGPath;
     track.strokeColor = UIColor.grayColor.CGColor;
     track.lineWidth = 10;
     track.fillColor = [[UIColor clearColor] CGColor];
+    track.position = self.view.center;
     [breathMainView.layer addSublayer:track];
+    
     //main moving track
     circleShapeLayer = [CAShapeLayer layer];
     circleShapeLayer.path = circlePath.CGPath;
@@ -44,6 +54,8 @@ NSString *urlString = @"https://firebasestorage.googleapis.com/v0/b/firestorecha
     circleShapeLayer.lineWidth = 10;
     circleShapeLayer.fillColor = [[UIColor clearColor] CGColor];
     circleShapeLayer.lineCap = kCALineCapRound;
+    circleShapeLayer.position = self.view.center;
+    circleShapeLayer.transform = CATransform3DMakeRotation(-M_PI/2, 0, 0, 1);
     [breathMainView.layer addSublayer:circleShapeLayer];
     //Add gesture recognizer
     UITapGestureRecognizer *breathTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleBreathTap:)];
@@ -56,16 +68,14 @@ NSString *urlString = @"https://firebasestorage.googleapis.com/v0/b/firestorecha
     NSLog(@"finished downloading file");
 }
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
-    //Handling data percentage of url download 
+    //Handling data percentage of url download
      CGFloat percentage = (double)totalBytesWritten/(double)totalBytesExpectedToWrite;
-    
+    //Needs to be in the main queue because everythig happens asynchronously, so the download task is in the background and when we need to update the UI again 
     dispatch_async(dispatch_get_main_queue(), ^{
+        CGFloat p = percentage * 100;
+        downloadPercentageLabel.text = [NSString stringWithFormat:@"%.0f %%", p];
        circleShapeLayer.strokeEnd = percentage;
-        
     });
-    
-    
-    
 }
 -(void)beginDownloadingFile {
      NSLog(@"downloading file");
