@@ -14,7 +14,6 @@
 UIView *breathMainView;
 CAShapeLayer *circleShapeLayer;
 UILabel *breatheLabel;
-//CAShapeLayer *pulsate;
 
 @implementation BreathViewController
 
@@ -36,16 +35,6 @@ UILabel *breatheLabel;
     //draw  main circle
     UIBezierPath* circlePath = [UIBezierPath bezierPath];
     [circlePath addArcWithCenter:breathMainView.center radius: 100 startAngle: -M_PI/2 endAngle: 2 * M_PI clockwise:YES];
-//    //Pulsate
-//    pulsate = [CAShapeLayer layer];
-//    pulsate.path = circlePath.CGPath;
-//    pulsate.strokeColor = UIColor.redColor.CGColor;
-//    pulsate.lineWidth = 40;
-//    pulsate.fillColor = [[UIColor yellowColor] CGColor];
-//    pulsate.lineCap = kCALineCapRound;
-//    //pulsate.position = CGPointMake(circleShapeLayer.frame.size.width/2, circleShapeLayer.frame.size.width/2); //self.view.center;
-//    [breathMainView.layer addSublayer:pulsate];
-//     [self animatePulsing];
     //grey base track
     CAShapeLayer *track = [CAShapeLayer layer];
     track.path = circlePath.CGPath;
@@ -68,24 +57,8 @@ UILabel *breatheLabel;
     [breathMainView addGestureRecognizer: breathTap];
 }
 
-//-(void)animatePulsing {
-//
-//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-//    animation.fromValue = [NSNumber numberWithFloat:0];
-//    animation.toValue = [NSNumber numberWithFloat:1.5];
-//    animation.duration = 5;
-//    animation.repeatCount = FLT_MAX;
-//    animation.timingFunction = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseOut];
-//    animation.autoreverses = YES;
-//    //pulsate.position = CGPointMake(self.view.frame.origin.x, self.view.frame.origin.y); //self.view.center;
-//    [pulsate addAnimation:animation forKey:animation.keyPath];
-//
-//
-//}
-
 - (void) handleBreathTap:(UITapGestureRecognizer *)recognizer {
     NSLog(@"BREATH Button TAPPED");
-   // [self animatePulsing];
     CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     basicAnimation.toValue = 0;
     basicAnimation.fromValue = [NSValue valueWithCGPoint: circleShapeLayer.position];
