@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		927961DC228A1FA400844A90 /* JournalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 927961DB228A1FA400844A90 /* JournalTableViewCell.m */; };
 		92CA8F6E227CFDB900BD8D72 /* BreathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CA8F6D227CFDB900BD8D72 /* BreathViewController.m */; };
 		92CA8F71227D016700BD8D72 /* JournalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CA8F70227D016700BD8D72 /* JournalTableViewController.m */; };
 		92CA8F74227D017F00BD8D72 /* MeditateCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CA8F73227D017F00BD8D72 /* MeditateCollectionViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		927961DA228A1FA400844A90 /* JournalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JournalTableViewCell.h; sourceTree = "<group>"; };
+		927961DB228A1FA400844A90 /* JournalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JournalTableViewCell.m; sourceTree = "<group>"; };
 		92CA8F6C227CFDB900BD8D72 /* BreathViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BreathViewController.h; sourceTree = "<group>"; };
 		92CA8F6D227CFDB900BD8D72 /* BreathViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreathViewController.m; sourceTree = "<group>"; };
 		92CA8F6F227D016700BD8D72 /* JournalTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JournalTableViewController.h; sourceTree = "<group>"; };
@@ -49,6 +52,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		927961DD228A1FB000844A90 /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				92CA8F6F227D016700BD8D72 /* JournalTableViewController.h */,
+				92CA8F70227D016700BD8D72 /* JournalTableViewController.m */,
+				927961DA228A1FA400844A90 /* JournalTableViewCell.h */,
+				927961DB228A1FA400844A90 /* JournalTableViewCell.m */,
+			);
+			path = Journal;
+			sourceTree = "<group>";
+		};
 		92CA8F78227D01D800BD8D72 /* MainCategories */ = {
 			isa = PBXGroup;
 			children = (
@@ -56,8 +70,7 @@
 				92CA8F6D227CFDB900BD8D72 /* BreathViewController.m */,
 				92CA8F72227D017F00BD8D72 /* MeditateCollectionViewController.h */,
 				92CA8F73227D017F00BD8D72 /* MeditateCollectionViewController.m */,
-				92CA8F6F227D016700BD8D72 /* JournalTableViewController.h */,
-				92CA8F70227D016700BD8D72 /* JournalTableViewController.m */,
+				927961DD228A1FB000844A90 /* Journal */,
 				92CA8F75227D019100BD8D72 /* PlayCollectionViewController.h */,
 				92CA8F76227D019100BD8D72 /* PlayCollectionViewController.m */,
 			);
@@ -172,6 +185,7 @@
 				92CA8F74227D017F00BD8D72 /* MeditateCollectionViewController.m in Sources */,
 				92CA8F6E227CFDB900BD8D72 /* BreathViewController.m in Sources */,
 				92CE7A2822776120005C2B8B /* AppDelegate.m in Sources */,
+				927961DC228A1FA400844A90 /* JournalTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

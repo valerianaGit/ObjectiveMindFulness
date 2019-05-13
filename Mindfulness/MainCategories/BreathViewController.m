@@ -50,13 +50,12 @@ UILabel *breatheLabel;
     circleShapeLayer.fillColor = [[UIColor clearColor] CGColor];
     circleShapeLayer.lineCap = kCALineCapRound;
     [breathMainView.layer addSublayer:circleShapeLayer];
-
-    
     //Add gesture recognizer
     UITapGestureRecognizer *breathTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleBreathTap:)];
     [breathMainView addGestureRecognizer: breathTap];
 }
 
+//MARK: - GestureRecognizer
 - (void) handleBreathTap:(UITapGestureRecognizer *)recognizer {
     NSLog(@"BREATH Button TAPPED");
     CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
